@@ -31,4 +31,9 @@
 - (void)testThatTopicHasATag {
     STAssertEqualObjects(topic.tag, @"iPhone", @"Topic should have tags");
 }
+
+- (void)testForAListOfQuestions {
+    STAssertTrue([[topic recentQuestions] isKindOfClass:[NSArray class]],
+                  @"Topic should provide a list of recent questions");
+}
 @end
