@@ -23,6 +23,9 @@
 		6C28761D175F205E003C772F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2875F4175F205D003C772F /* UIKit.framework */; };
 		6C28761E175F205E003C772F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2875F6175F205D003C772F /* Foundation.framework */; };
 		6C287626175F205E003C772F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C287624175F205E003C772F /* InfoPlist.strings */; };
+		6C287637175F392D003C772F /* TopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287636175F392D003C772F /* TopicTests.m */; };
+		6C28763B175F3BE1003C772F /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C28763A175F3BE1003C772F /* Topic.m */; };
+		6C28763C175F3BE1003C772F /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C28763A175F3BE1003C772F /* Topic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,10 @@
 		6C28761B175F205E003C772F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6C287623175F205E003C772F /* BrowseOverflowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BrowseOverflowTests-Info.plist"; sourceTree = "<group>"; };
 		6C287625175F205E003C772F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6C287635175F392D003C772F /* TopicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicTests.h; path = models/TopicTests.h; sourceTree = "<group>"; };
+		6C287636175F392D003C772F /* TopicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicTests.m; path = models/TopicTests.m; sourceTree = "<group>"; };
+		6C287639175F3BE1003C772F /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = models/Topic.h; sourceTree = "<group>"; };
+		6C28763A175F3BE1003C772F /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = models/Topic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +132,7 @@
 				6C287612175F205D003C772F /* DetailViewController.h */,
 				6C287613175F205D003C772F /* DetailViewController.m */,
 				6C2875FB175F205D003C772F /* Supporting Files */,
+				6C28763D175F3BEA003C772F /* models */,
 			);
 			path = BrowseOverflow;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				6C287622175F205E003C772F /* Supporting Files */,
+				6C287638175F3936003C772F /* models */,
 			);
 			path = BrowseOverflowTests;
 			sourceTree = "<group>";
@@ -158,6 +167,24 @@
 				6C287624175F205E003C772F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C287638175F3936003C772F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				6C287636175F392D003C772F /* TopicTests.m */,
+				6C287635175F392D003C772F /* TopicTests.h */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		6C28763D175F3BEA003C772F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				6C287639175F3BE1003C772F /* Topic.h */,
+				6C28763A175F3BE1003C772F /* Topic.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +301,7 @@
 				6C287605175F205D003C772F /* AppDelegate.m in Sources */,
 				6C287611175F205D003C772F /* MasterViewController.m in Sources */,
 				6C287614175F205D003C772F /* DetailViewController.m in Sources */,
+				6C28763B175F3BE1003C772F /* Topic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C287637175F392D003C772F /* TopicTests.m in Sources */,
+				6C28763C175F3BE1003C772F /* Topic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
