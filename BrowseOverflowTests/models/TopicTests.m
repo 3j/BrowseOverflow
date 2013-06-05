@@ -21,19 +21,19 @@
 }
 
 - (void)testThatTopicExists {
-    STAssertNotNil(topic, @"Topic should be instanciable");
+    STAssertNotNil(topic, @"Topic is instanciable");
 }
 
 - (void)testThatTopicCanBeNamed {
-    STAssertEqualObjects(topic.name, @"iPhone", @"Topic should have a name");
+    STAssertEqualObjects(topic.name, @"iPhone", @"Topic has a name");
 }
 
 - (void)testThatTopicHasATag {
-    STAssertEqualObjects(topic.tag, @"iPhone", @"Topic should have tags");
+    STAssertEqualObjects(topic.tag, @"iPhone", @"Topic has a tag");
 }
 
 - (void)testForAListOfQuestions {
     STAssertTrue([[topic recentQuestions] isKindOfClass:[NSArray class]],
-                  @"Topic should provide a list of recent questions");
+                  @"Topic provides a list of recent questions");
 }
 @end
