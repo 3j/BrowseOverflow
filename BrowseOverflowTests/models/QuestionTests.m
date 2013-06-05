@@ -11,23 +11,26 @@
 
 @implementation QuestionTests
 
-- (void)testQuestionHasACreationDate {
-    Question *question = [[Question alloc] init];
-    NSDate *creationDate = [NSDate distantPast];
-    question.date = creationDate;
+- (void)setUp {
+    question = [[Question alloc] init];
+}
 
+- (void)tearDown {
+    question = nil;
+}
+
+- (void)testQuestionHasACreationDate {
+    question.date = [NSDate distantPast];
     STAssertTrue([question.date isKindOfClass:[NSDate class]],
                  @"Question has a creation date");
 }
 
 - (void)testQuestionKeepsScore {
-    Question *question = [[Question alloc] init];
     question.score = 42;
     STAssertEquals(question.score, 42, @"Question keeps a score");
 }
 
 - (void)testQuestionHasATitle {
-    Question *question = [[Question alloc] init];
     question.title = @"Do iphones also dream of electric sheep";
     STAssertEquals(question.title, @"Do iphones also dream of electric sheep",
                    @"Question has a title");
