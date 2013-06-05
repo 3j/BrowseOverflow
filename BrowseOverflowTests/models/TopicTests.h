@@ -8,6 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface TopicTests : SenTestCase
+@class Topic;
+
+@interface TopicTests : SenTestCase {
+    Topic *topic;
+}
 
 @end

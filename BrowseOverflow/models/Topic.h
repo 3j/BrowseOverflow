@@ -13,6 +13,6 @@
 @property (readonly) NSString *name;
 @property (readonly) NSString *tag;
 
--(id)initWithName:(NSString *)newName tag:(NSString *)newTag;
+- (id)initWithName:(NSString *)newName tag:(NSString *)newTag;
 
 @end
