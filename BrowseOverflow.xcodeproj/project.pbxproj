@@ -26,6 +26,9 @@
 		6C287637175F392D003C772F /* TopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287636175F392D003C772F /* TopicTests.m */; };
 		6C28763B175F3BE1003C772F /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C28763A175F3BE1003C772F /* Topic.m */; };
 		6C28763C175F3BE1003C772F /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C28763A175F3BE1003C772F /* Topic.m */; };
+		6C287640175F63F3003C772F /* QuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C28763F175F63F3003C772F /* QuestionTests.m */; };
+		6C287643175F645D003C772F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287642175F645D003C772F /* Question.m */; };
+		6C287644175F645D003C772F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287642175F645D003C772F /* Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,10 @@
 		6C287636175F392D003C772F /* TopicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicTests.m; path = models/TopicTests.m; sourceTree = "<group>"; };
 		6C287639175F3BE1003C772F /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = models/Topic.h; sourceTree = "<group>"; };
 		6C28763A175F3BE1003C772F /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = models/Topic.m; sourceTree = "<group>"; };
+		6C28763E175F63F3003C772F /* QuestionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionTests.h; path = models/QuestionTests.h; sourceTree = "<group>"; };
+		6C28763F175F63F3003C772F /* QuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionTests.m; path = models/QuestionTests.m; sourceTree = "<group>"; };
+		6C287641175F645D003C772F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = models/Question.h; sourceTree = "<group>"; };
+		6C287642175F645D003C772F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = models/Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +181,8 @@
 			children = (
 				6C287636175F392D003C772F /* TopicTests.m */,
 				6C287635175F392D003C772F /* TopicTests.h */,
+				6C28763E175F63F3003C772F /* QuestionTests.h */,
+				6C28763F175F63F3003C772F /* QuestionTests.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -183,6 +192,8 @@
 			children = (
 				6C287639175F3BE1003C772F /* Topic.h */,
 				6C28763A175F3BE1003C772F /* Topic.m */,
+				6C287641175F645D003C772F /* Question.h */,
+				6C287642175F645D003C772F /* Question.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 				6C287611175F205D003C772F /* MasterViewController.m in Sources */,
 				6C287614175F205D003C772F /* DetailViewController.m in Sources */,
 				6C28763B175F3BE1003C772F /* Topic.m in Sources */,
+				6C287643175F645D003C772F /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +323,8 @@
 			files = (
 				6C287637175F392D003C772F /* TopicTests.m in Sources */,
 				6C28763C175F3BE1003C772F /* Topic.m in Sources */,
+				6C287640175F63F3003C772F /* QuestionTests.m in Sources */,
+				6C287644175F645D003C772F /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
