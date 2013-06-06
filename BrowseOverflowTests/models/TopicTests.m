@@ -68,4 +68,14 @@
                          @"Topic provides later questions first");
 }
 
+- (void)testLimitOf20QuestionsPerTopic {
+    Question *question = [[Question alloc] init];
+    for (NSInteger i=0; i<25; i++) {
+        [topic addQuestion: question];
+    }
+
+    STAssertTrue([[topic recentQuestions] count] < 21,
+                 @"Topic provides 20 questions tops");
+}
+
 @end
