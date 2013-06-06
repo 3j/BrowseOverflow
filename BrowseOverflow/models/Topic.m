@@ -7,8 +7,11 @@
 //
 
 #import "Topic.h"
+#import "Question.h"
 
-@implementation Topic
+@implementation Topic {
+    NSArray *questions;
+}
 
 @synthesize name;
 @synthesize tag;
@@ -17,11 +20,20 @@
     if (self = [super init]) {
         name = [newName copy];
         tag = [newTag copy];
+        questions = [[NSArray alloc] init];
     }
     return self;
 }
 
 - (NSArray *)recentQuestions {
-    return [NSArray array];
+    return [questions sortedArrayUsingComparator:^NSComparisonResult(id object1, id object2) {
+        Question *question1 = (Question *)object1;
+        Question *question2 = (Question *)object2;
+        return [question2.date compare:question1.date];
+    }];
+}
+
+- (void)addQuestion:(Question *)question {
+    questions = [questions arrayByAddingObject: question];
 }
 @end
