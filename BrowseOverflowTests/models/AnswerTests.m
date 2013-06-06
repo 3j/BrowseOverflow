@@ -43,4 +43,31 @@
 - (void)testAnswerHasAScore {
     STAssertTrue(answer.score == 42, @"Answer has associated score");
 }
+
+- (void)testAcceptedAnswerComesBeforeUnaccepted {
+    Answer *acceptedAnswer = [[Answer alloc] init];
+    acceptedAnswer.accepted = YES;
+    STAssertEquals([acceptedAnswer compare: answer], NSOrderedAscending,
+                   @"Accepted answer comes first");
+    STAssertEquals([answer compare: acceptedAnswer], NSOrderedDescending,
+                   @"Unaccepted answer comes last");
+}
+
+- (void)testAnswersWithEqualScoresCompareEqually {
+    Answer *otherAnswer = [[Answer alloc] init];
+    otherAnswer.score = answer.score;
+    STAssertEquals([otherAnswer compare: answer], NSOrderedSame,
+                   @"Answers with the same score compare equally");
+    STAssertEquals([answer compare: otherAnswer], NSOrderedSame,
+                   @"Answers with the same score compare equally");
+}
+
+- (void)testHigherScoringAnswerComesBeforeLower {
+    Answer *higherScoreAnswer = [[Answer alloc] init];
+    higherScoreAnswer.score = answer.score + 20;
+    STAssertEquals([higherScoreAnswer compare: answer], NSOrderedAscending,
+                   @"Higher score answer comes first");
+    STAssertEquals([answer compare: higherScoreAnswer], NSOrderedDescending,
+                   @"Lower score answer comes last");
+}
 @end

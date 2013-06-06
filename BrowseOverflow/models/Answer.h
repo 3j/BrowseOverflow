@@ -17,4 +17,6 @@
 @property (readwrite) BOOL accepted;
 @property (readwrite) NSInteger score;
 
+- (NSComparisonResult)compare: (Answer *)otherAnswer;
+
 @end
