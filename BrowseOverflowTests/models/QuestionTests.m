@@ -8,32 +8,65 @@
 
 #import "QuestionTests.h"
 #import "Question.h"
+#import "Answer.h"
 
 @implementation QuestionTests
 
 - (void)setUp {
     question = [[Question alloc] init];
+    question.date = [NSDate distantPast];
+    question.score = 42;
+    question.title = @"Do iphones also dream of electric sheep";
+
+    acceptedAnswer = [[Answer alloc] init];
+    acceptedAnswer.score = 1,
+    acceptedAnswer.accepted = YES;
+    [question addAnswer: acceptedAnswer];
+
+    lowScoreAnswer = [[Answer alloc] init];
+    lowScoreAnswer.score = -10;
+    [question addAnswer: lowScoreAnswer];
+
+    highScoreAnswer = [[Answer alloc] init];
+    highScoreAnswer.score = 20;
+    [question addAnswer: highScoreAnswer];
 }
 
 - (void)tearDown {
     question = nil;
+    acceptedAnswer = nil;
+    lowScoreAnswer = nil;
+    highScoreAnswer = nil;
 }
 
 - (void)testQuestionHasACreationDate {
-    question.date = [NSDate distantPast];
     STAssertTrue([question.date isKindOfClass: [NSDate class]],
                  @"Question has a creation date");
 }
 
 - (void)testQuestionKeepsScore {
-    question.score = 42;
     STAssertEquals(question.score, 42, @"Question keeps a score");
 }
 
 - (void)testQuestionHasATitle {
-    question.title = @"Do iphones also dream of electric sheep";
     STAssertEquals(question.title, @"Do iphones also dream of electric sheep",
                    @"Question has a title");
+}
+
+- (void)testQuestionCanHaveAnswersAdded {
+    Answer *answer = [[Answer alloc] init];
+    STAssertNoThrow([question addAnswer: answer], @"Question can have anwsers added");
+}
+
+- (void)testAcceptedAnswerComesFirst {
+    STAssertTrue([[question.answers objectAtIndex: 0] isAccepted],
+                 @"Accepted answer comes first");
+}
+
+- (void)testHighScoreAnswerComesBeforeLow {
+    NSInteger highIndex = [question.answers indexOfObject: highScoreAnswer];
+    NSInteger lowIndex = [question.answers indexOfObject: lowScoreAnswer];
+    STAssertTrue(highIndex < lowIndex, @"Higher score answers come first");
 }
 
 @end

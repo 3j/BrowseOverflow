@@ -14,7 +14,7 @@
 
 @property (readwrite) NSString *text;
 @property (readwrite) Person *person;
-@property (readwrite) BOOL accepted;
+@property (getter = isAccepted) BOOL accepted;
 @property (readwrite) NSInteger score;
 
 - (NSComparisonResult)compare: (Answer *)otherAnswer;
