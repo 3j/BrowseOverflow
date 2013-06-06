@@ -13,8 +13,8 @@
 @synthesize name;
 @synthesize avatarURL;
 
-- (id)initWithName:(NSString *)newName
-    avatarLocation:(NSString *)newAvatarLocation {
+- (id)initWithName: (NSString *)newName
+    avatarLocation: (NSString *)newAvatarLocation {
     if (self = [super init]) {
         name = newName;
         avatarURL = [[NSURL alloc] initWithString: newAvatarLocation];

@@ -13,8 +13,8 @@
 @implementation TopicTests
 
 - (void)setUp {
-    topic = [[Topic alloc] initWithName:@"iPhone"
-                                    tag:@"iPhone"];
+    topic = [[Topic alloc] initWithName: @"iPhone"
+                                    tag: @"iPhone"];
 }
 
 - (void)tearDown {
@@ -45,7 +45,7 @@
 
 - (void)testAddingAQuestionToTheList {
     Question *question = [[Question alloc] init];
-    [topic addQuestion:question];
+    [topic addQuestion: question];
 
     STAssertEquals([[topic recentQuestions] count], (NSUInteger)1,
                    @"Topic provides a list of 1 recent question if there is only 1 question");
@@ -63,7 +63,7 @@
 
     Question *listedFirstQuestion = [questions objectAtIndex:0];
     Question *listedSecondQuestion = [questions objectAtIndex:1];
-    STAssertEqualObjects([listedFirstQuestion.date laterDate:listedSecondQuestion.date],
+    STAssertEqualObjects([listedFirstQuestion.date laterDate: listedSecondQuestion.date],
                          listedFirstQuestion.date,
                          @"Topic provides later questions first");
 }

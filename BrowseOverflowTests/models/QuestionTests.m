@@ -21,7 +21,7 @@
 
 - (void)testQuestionHasACreationDate {
     question.date = [NSDate distantPast];
-    STAssertTrue([question.date isKindOfClass:[NSDate class]],
+    STAssertTrue([question.date isKindOfClass: [NSDate class]],
                  @"Question has a creation date");
 }
 

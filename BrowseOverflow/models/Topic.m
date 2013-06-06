@@ -16,7 +16,7 @@
 @synthesize name;
 @synthesize tag;
 
-- (id)initWithName:(NSString *)newName tag:(NSString *)newTag {
+- (id)initWithName: (NSString *)newName tag: (NSString *)newTag {
     if (self = [super init]) {
         name = [newName copy];
         tag = [newTag copy];
@@ -29,7 +29,7 @@
     return [self sortQuestionsLatestFirst:questions];
 }
 
-- (void)addQuestion:(Question *)question {
+- (void)addQuestion: (Question *)question {
     NSArray *newQuestions = [questions arrayByAddingObject:question];
     if ([newQuestions count] > 20) {
         newQuestions = [[self sortQuestionsLatestFirst:newQuestions]
@@ -38,8 +38,8 @@
     questions = newQuestions;
 }
 
-- (NSArray *)sortQuestionsLatestFirst:(NSArray *)questionList {
-    return [questionList sortedArrayUsingComparator:^NSComparisonResult(id object1, id object2) {
+- (NSArray *)sortQuestionsLatestFirst: (NSArray *)questionList {
+    return [questionList sortedArrayUsingComparator: ^NSComparisonResult(id object1, id object2) {
         Question *question1 = (Question *)object1;
         Question *question2 = (Question *)object2;
         return [question2.date compare:question1.date];

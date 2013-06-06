@@ -12,8 +12,8 @@
 @implementation PersonTests
 
 - (void)setUp {
-    person = [[Person alloc] initWithName:@"Graham Lee"
-                           avatarLocation:@"http://example.com/avatar.png"];
+    person = [[Person alloc] initWithName: @"Graham Lee"
+                           avatarLocation: @"http://example.com/avatar.png"];
 }
 
 - (void) tearDown {

@@ -13,7 +13,7 @@
 @property (readonly) NSString *name;
 @property (readonly) NSURL *avatarURL;
 
-- (id)initWithName:(NSString *)newName
-    avatarLocation:(NSString *)newAvatarLocation;
+- (id)initWithName: (NSString *)newName
+    avatarLocation: (NSString *)newAvatarLocation;
 
 @end
