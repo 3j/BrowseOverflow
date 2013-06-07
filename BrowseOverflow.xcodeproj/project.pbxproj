@@ -32,6 +32,7 @@
 		6C287647175F9FDA003C772F /* PersonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287646175F9FDA003C772F /* PersonTests.m */; };
 		6C28764A175FA144003C772F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287649175FA144003C772F /* Person.m */; };
 		6C28764B175FA144003C772F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C287649175FA144003C772F /* Person.m */; };
+		6C68BE5A1761D54B00084138 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C68BE591761D54B00084138 /* libOCMock.a */; };
 		6C72BE591760947F00170BB6 /* AnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C72BE581760947F00170BB6 /* AnswerTests.m */; };
 		6C72BE5C1760958500170BB6 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C72BE5B1760958500170BB6 /* Answer.m */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		6C287646175F9FDA003C772F /* PersonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonTests.m; path = models/PersonTests.m; sourceTree = "<group>"; };
 		6C287648175FA144003C772F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = models/Person.h; sourceTree = "<group>"; };
 		6C287649175FA144003C772F /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = models/Person.m; sourceTree = "<group>"; };
+		6C68BE591761D54B00084138 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = usr/lib/libOCMock.a; sourceTree = "<group>"; };
 		6C72BE571760947F00170BB6 /* AnswerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerTests.h; path = models/AnswerTests.h; sourceTree = "<group>"; };
 		6C72BE581760947F00170BB6 /* AnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerTests.m; path = models/AnswerTests.m; sourceTree = "<group>"; };
 		6C72BE5A1760958500170BB6 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = models/Answer.h; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C68BE5A1761D54B00084138 /* libOCMock.a in Frameworks */,
 				6C28761C175F205E003C772F /* SenTestingKit.framework in Frameworks */,
 				6C28761D175F205E003C772F /* UIKit.framework in Frameworks */,
 				6C28761E175F205E003C772F /* Foundation.framework in Frameworks */,
@@ -114,6 +117,7 @@
 		6C2875E8175F205D003C772F = {
 			isa = PBXGroup;
 			children = (
+				6C68BE591761D54B00084138 /* libOCMock.a */,
 				6C2875FA175F205D003C772F /* BrowseOverflow */,
 				6C287621175F205E003C772F /* BrowseOverflowTests */,
 				6C2875F3175F205D003C772F /* Frameworks */,
@@ -480,7 +484,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BrowseOverflow/BrowseOverflow-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/usr/include\"";
 				INFOPLIST_FILE = "BrowseOverflowTests/BrowseOverflowTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/lib\"",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -497,7 +511,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BrowseOverflow/BrowseOverflow-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/usr/include\"";
 				INFOPLIST_FILE = "BrowseOverflowTests/BrowseOverflowTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/lib\"",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
