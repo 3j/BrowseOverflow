@@ -42,7 +42,7 @@
     return [questionList sortedArrayUsingComparator: ^NSComparisonResult(id object1, id object2) {
         Question *question1 = (Question *)object1;
         Question *question2 = (Question *)object2;
-        return [question2.date compare: question1.date];
+        return [[question2 date] compare: [question1 date]];
     }];
 }
 @end

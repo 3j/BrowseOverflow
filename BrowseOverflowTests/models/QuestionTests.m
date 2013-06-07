@@ -14,21 +14,21 @@
 
 - (void)setUp {
     question = [[Question alloc] init];
-    question.date = [NSDate distantPast];
-    question.score = 42;
-    question.title = @"Do iphones also dream of electric sheep";
+    [question setDate: [NSDate distantPast]];
+    [question setScore: 42];
+    [question setTitle: @"Do iphones also dream of electric sheep"];
 
     acceptedAnswer = [[Answer alloc] init];
-    acceptedAnswer.score = 1,
-    acceptedAnswer.accepted = YES;
+    [acceptedAnswer setScore: 1],
+    [acceptedAnswer setAccepted: YES];
     [question addAnswer: acceptedAnswer];
 
     lowScoreAnswer = [[Answer alloc] init];
-    lowScoreAnswer.score = -10;
+    [lowScoreAnswer setScore: -10];
     [question addAnswer: lowScoreAnswer];
 
     highScoreAnswer = [[Answer alloc] init];
-    highScoreAnswer.score = 20;
+    [highScoreAnswer setScore: 20];
     [question addAnswer: highScoreAnswer];
 }
 
@@ -40,16 +40,16 @@
 }
 
 - (void)testQuestionHasACreationDate {
-    STAssertTrue([question.date isKindOfClass: [NSDate class]],
+    STAssertTrue([[question date] isKindOfClass: [NSDate class]],
                  @"Question has a creation date");
 }
 
 - (void)testQuestionKeepsScore {
-    STAssertEquals(question.score, 42, @"Question keeps a score");
+    STAssertEquals([question score], 42, @"Question keeps a score");
 }
 
 - (void)testQuestionHasATitle {
-    STAssertEquals(question.title, @"Do iphones also dream of electric sheep",
+    STAssertEquals([question title], @"Do iphones also dream of electric sheep",
                    @"Question has a title");
 }
 
@@ -59,13 +59,13 @@
 }
 
 - (void)testAcceptedAnswerComesFirst {
-    STAssertTrue([[question.answers objectAtIndex: 0] isAccepted],
+    STAssertTrue([[[question answers] objectAtIndex: 0] isAccepted],
                  @"Accepted answer comes first");
 }
 
 - (void)testHighScoreAnswerComesBeforeLow {
-    NSInteger highIndex = [question.answers indexOfObject: highScoreAnswer];
-    NSInteger lowIndex = [question.answers indexOfObject: lowScoreAnswer];
+    NSInteger highIndex = [[question answers] indexOfObject: highScoreAnswer];
+    NSInteger lowIndex = [[question answers] indexOfObject: lowScoreAnswer];
     STAssertTrue(highIndex < lowIndex, @"Higher score answers come first");
 }
 

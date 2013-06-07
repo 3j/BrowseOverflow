@@ -14,10 +14,10 @@
 
 - (void)setUp {
     answer = [[Answer alloc] init];
-    answer.text = @"The answer is 42";
-    answer.person = [[Person alloc] initWithName: @"Graham Lee"
-                                  avatarLocation: @"http://example.com/avatar.png"];
-    answer.score = 42;
+    [answer setText: @"The answer is 42"];
+    [answer setPerson: [[Person alloc] initWithName: @"Graham Lee"
+                                     avatarLocation: @"http://example.com/avatar.png"]];
+    [answer setScore: 42];
 }
 
 - (void)tearDown {
@@ -25,28 +25,29 @@
 }
 
 - (void)testAnswerHasAssociatedText {
-    STAssertEqualObjects(answer.text, @"The answer is 42", @"Answer has associated text");
+    STAssertEqualObjects([answer text], @"The answer is 42", @"Answer has associated text");
 }
 
 - (void)testSomeoneProvidedTheAnswer {
-    STAssertTrue([answer.person isKindOfClass: [Person class]], @"Answer has associated Person");
+    STAssertTrue([[answer person] isKindOfClass: [Person class]], @"Answer has associated Person");
 }
 
 - (void)testAnswerCanBeAccepted {
-    STAssertNoThrow(answer.accepted = YES, @"Answer can be accepted");
+    STAssertNoThrow([answer setAccepted: YES], @"Answer can be accepted");
 }
 
 - (void)testAnswersAreNotAcceptedByDefault {
-    STAssertFalse(answer.accepted, @"Answer isn't accepted by default");
+    STAssertFalse([answer isAccepted], @"Answer isn't accepted by default");
 }
 
 - (void)testAnswerHasAScore {
-    STAssertTrue(answer.score == 42, @"Answer has associated score");
+    STAssertTrue([answer score] == 42, @"Answer has associated score");
 }
 
 - (void)testAcceptedAnswerComesBeforeUnaccepted {
     Answer *acceptedAnswer = [[Answer alloc] init];
-    acceptedAnswer.accepted = YES;
+    [acceptedAnswer setAccepted: YES];
+
     STAssertEquals([acceptedAnswer compare: answer], NSOrderedAscending,
                    @"Accepted answer comes first");
     STAssertEquals([answer compare: acceptedAnswer], NSOrderedDescending,
@@ -55,7 +56,8 @@
 
 - (void)testAnswersWithEqualScoresCompareEqually {
     Answer *otherAnswer = [[Answer alloc] init];
-    otherAnswer.score = answer.score;
+    [otherAnswer setScore: [answer score]];
+
     STAssertEquals([otherAnswer compare: answer], NSOrderedSame,
                    @"Answers with the same score compare equally");
     STAssertEquals([answer compare: otherAnswer], NSOrderedSame,
@@ -64,7 +66,8 @@
 
 - (void)testHigherScoringAnswerComesBeforeLower {
     Answer *higherScoreAnswer = [[Answer alloc] init];
-    higherScoreAnswer.score = answer.score + 20;
+    [higherScoreAnswer setScore: [answer score] + 20];
+
     STAssertEquals([higherScoreAnswer compare: answer], NSOrderedAscending,
                    @"Higher score answer comes first");
     STAssertEquals([answer compare: higherScoreAnswer], NSOrderedDescending,

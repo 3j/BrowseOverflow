@@ -21,11 +21,11 @@
 }
 
 - (void)testThatPersonHasAName {
-    STAssertEqualObjects(person.name, @"Graham Lee", @"Person has a name");
+    STAssertEqualObjects([person name], @"Graham Lee", @"Person has a name");
 }
 
 - (void)testThatPersonHasAnAvatar {
-    STAssertEqualObjects([person.avatarURL absoluteString],
+    STAssertEqualObjects([[person avatarURL] absoluteString],
                          @"http://example.com/avatar.png",
                          @"Person has an URL link to an avatar");
 }

@@ -14,15 +14,15 @@
 @synthesize score;
 
 - (NSComparisonResult)compare:(Answer *)otherAnswer {
-    if (accepted && !otherAnswer.accepted) {
+    if ([self isAccepted] && ![otherAnswer isAccepted]) {
         return NSOrderedAscending;
-    } else if (!accepted && otherAnswer.accepted) {
+    } else if ([otherAnswer isAccepted] && ![self isAccepted]) {
         return NSOrderedDescending;
     }
 
-    if (score > otherAnswer.score) {
+    if (score > [otherAnswer score]) {
         return NSOrderedAscending;
-    } else if (score == otherAnswer.score) {
+    } else if (score == [otherAnswer score]) {
         return NSOrderedSame;
     }
 

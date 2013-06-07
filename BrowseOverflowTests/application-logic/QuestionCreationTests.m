@@ -25,7 +25,7 @@
     id<StackOverflowManagerDelegate> conformingDelegate =
         [OCMockObject mockForProtocol: @protocol(StackOverflowManagerDelegate)];
 
-    STAssertNoThrow(manager.delegate = conformingDelegate,
+    STAssertNoThrow([manager setDelegate: conformingDelegate],
                     @"Object conforming to the delegate protocol can be used as delegate");
 }
 
@@ -33,12 +33,12 @@
     id<StackOverflowManagerDelegate> nonConformingDelegate =
         (id<StackOverflowManagerDelegate>)[NSNull null];
 
-    STAssertThrows(manager.delegate = nonConformingDelegate,
+    STAssertThrows([manager setDelegate: nonConformingDelegate],
                    @"Object non conforming the the delegate protocol can't be used as delegate");
 }
 
 - (void)testNilCanBeDelegate {
-    STAssertNoThrow(manager.delegate = nil,
+    STAssertNoThrow([manager setDelegate: nil],
                     @"Nil conforms to the delegate protocol and can be used as delegate");
 }
 

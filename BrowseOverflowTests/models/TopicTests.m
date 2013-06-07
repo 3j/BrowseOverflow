@@ -26,11 +26,11 @@
 }
 
 - (void)testThatTopicCanBeNamed {
-    STAssertEqualObjects(topic.name, @"iPhone", @"Topic has a name");
+    STAssertEqualObjects([topic name], @"iPhone", @"Topic has a name");
 }
 
 - (void)testThatTopicHasATag {
-    STAssertEqualObjects(topic.tag, @"iPhone", @"Topic has a tag");
+    STAssertEqualObjects([topic tag], @"iPhone", @"Topic has a tag");
 }
 
 - (void)testForAListOfQuestions {
@@ -53,26 +53,25 @@
 
 - (void)testQuestionsAreListedChronologically {
     Question *pastQuestion = [[Question alloc] init];
-    pastQuestion.date = [NSDate distantPast];
-    Question *futureQuestion = [[Question alloc] init];
-    futureQuestion.date = [NSDate distantFuture];
+    [pastQuestion setDate: [NSDate distantPast]];
     [topic addQuestion: pastQuestion];
+
+    Question *futureQuestion = [[Question alloc] init];
+    [futureQuestion setDate: [NSDate distantFuture]];
     [topic addQuestion: futureQuestion];
 
     NSArray *questions = [topic recentQuestions];
 
     Question *listedFirstQuestion = [questions objectAtIndex: 0];
     Question *listedSecondQuestion = [questions objectAtIndex: 1];
-    STAssertEqualObjects([listedFirstQuestion.date laterDate: listedSecondQuestion.date],
-                         listedFirstQuestion.date,
+    STAssertEqualObjects([[listedFirstQuestion date] laterDate: listedSecondQuestion.date],
+                         [listedFirstQuestion date],
                          @"Topic provides later questions first");
 }
 
 - (void)testLimitOf20QuestionsPerTopic {
     Question *question = [[Question alloc] init];
-    for (NSInteger i=0; i<25; i++) {
-        [topic addQuestion: question];
-    }
+    for (NSInteger i=0; i<25; i++) { [topic addQuestion: question]; }
 
     STAssertTrue([[topic recentQuestions] count] < 21,
                  @"Topic provides 20 questions tops");
