@@ -61,8 +61,8 @@
 
     NSArray *questions = [topic recentQuestions];
 
-    Question *listedFirstQuestion = [questions objectAtIndex:0];
-    Question *listedSecondQuestion = [questions objectAtIndex:1];
+    Question *listedFirstQuestion = [questions objectAtIndex: 0];
+    Question *listedSecondQuestion = [questions objectAtIndex: 1];
     STAssertEqualObjects([listedFirstQuestion.date laterDate: listedSecondQuestion.date],
                          listedFirstQuestion.date,
                          @"Topic provides later questions first");
